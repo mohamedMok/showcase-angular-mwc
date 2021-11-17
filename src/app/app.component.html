@@ -14,12 +14,110 @@
     display: flex;
     justify-content: space-around;
   }
+
+  .space {
+    margin-bottom: 30px;
+  }
 </style>
 <main>
+  <m-hero
+    image="https://m1.lmcdn.fr/media/15/5e611393475ea771bbbad626/2872342965/greenkub-maison-sans-permis5e611393063b330009a4a405.jpg?width=800&crop=16:9,smart"
+    title="Showcase Mozaic Web Component"
+    centered="true"
+  ></m-hero>
   <div class="">
+    <h1>Components</h1>
+    <h2>Form</h2>
+    <h3>Select</h3>
+    <m-select placeholder="Choose an options" options="{{ opts }}"></m-select>
+
+    <h3>Text input</h3>
+    <div class="example">
+      <m-textinput
+        name="txt1"
+        type="date"
+        placeholder="Text input"
+      ></m-textinput>
+
+      <m-textinput
+        name="txt1"
+        type="date"
+        placeholder="Text input"
+        disabled="true"
+      ></m-textinput>
+    </div>
+
+    <h3>Text area</h3>
+    <m-textarea name="txt1" type="date" placeholder="Text Area"></m-textarea>
+
+    <h3>Checkbox</h3>
+    <div class="example">
+      <m-checkbox
+        class="space"
+        name="chx"
+        label="Default - Test"
+        checked="true"
+        [(valuebind)]="checkboxValue"
+      ></m-checkbox>
+
+      Value = {{ checkboxValue }}
+
+      <m-checkbox
+        name="chx"
+        label="Checked"
+        checked="{{ toggleCheck }}"
+        valuebind="{{ checkboxtext }}"
+      ></m-checkbox>
+      {{ toggleCheck }}
+      <m-checkbox
+        name="chx"
+        label="Indeterminate"
+        indeterminate="{{ indeterminate }}"
+      ></m-checkbox>
+      Indeterminate {{ indeterminate }}
+    </div>
+
+    <h3>Radio</h3>
+    <div class="example">
+      <m-radio id="radio" name="radio1" label="Default"></m-radio>
+      <m-radio
+        id="radio"
+        name="radio1"
+        label="Disabled"
+        disabled="true"
+      ></m-radio>
+      <m-radio
+        id="radio"
+        name="radio1"
+        label="Invalid"
+        isinvalid="true"
+      ></m-radio>
+    </div>
+
+    <h3>Toogle</h3>
+    <div class="example">
+      <m-toggle
+        label="Default"
+        checked="toggleCheck"
+        (click)="handleToggle()"
+      ></m-toggle>
+      <m-toggle name="toggle" label="Disabled" disabled="true"></m-toggle>
+      <m-toggle label="Small" value="{{toggleCheck}}" ></m-toggle>
+    </div>
+
+    <h3>Quantity Selector</h3>
+    <m-quantity-selector
+      label="Quantity"
+      valuemin="0"
+      valuemax="50"
+      placeholder="Choose your quantity"
+    ></m-quantity-selector>
+
     <h2>Accordion</h2>
+    {{ open }}
     <m-accordion
       (click)="handleAccordion()"
+      (accordion-open)="handleAccordion()"
       open="{{ open }}"
       label="Accordion title"
     >
@@ -35,7 +133,12 @@
 
     <h2>Button</h2>
     <div class="example">
-      <m-button class="square" style="border-radius: 0" (click)="helloWorld()" label="Mon button"></m-button>
+      <m-button
+        class="square"
+        style="border-radius: 0"
+        (click)="helloWorld()"
+        label="Mon button"
+      ></m-button>
       <m-button label="Mon button" theme="primary-02"></m-button>
       <m-button label="Mon button" bordered="true"></m-button>
     </div>
