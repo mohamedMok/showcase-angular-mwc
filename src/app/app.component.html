@@ -29,7 +29,11 @@
     <h1>Components</h1>
     <h2>Form</h2>
     <h3>Select</h3>
-    <m-select placeholder="Choose an options" options="{{ opts }}"></m-select>
+    <m-select
+      placeholder="Choose an option"
+      options="{{ opts }}"
+      valueselected="{{ optionSelected }}"
+    ></m-select>
 
     <h3>Text input</h3>
     <div class="example">
@@ -102,7 +106,7 @@
         (click)="handleToggle()"
       ></m-toggle>
       <m-toggle name="toggle" label="Disabled" disabled="true"></m-toggle>
-      <m-toggle label="Small" value="{{toggleCheck}}" ></m-toggle>
+      <m-toggle label="Small" value="{{ toggleCheck }}"></m-toggle>
     </div>
 
     <h3>Quantity Selector</h3>
